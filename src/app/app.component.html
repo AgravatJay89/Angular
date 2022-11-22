@@ -1,38 +1,4 @@
- 
-<h1>Hello world from {{ name | uppercase }} in angular..</h1>
-<h1>Hello world from {{ name | lowercase }} in angular..</h1>
-<h1>Hello world from {{ name | titlecase }} in angular..</h1>
-<h1>Hello world from {{ name | slice : 3 }} in angular..</h1>
-<h1>Hello world from {{ name | slice : 3 : 7 }} in angular..</h1>
-<h1>Hello world from {{ salary | number : '1.2-3' }} in angular..</h1>
-<h1>Hello world from {{ salary | number : '3.1-1' }} in angular..</h1>
-<h1>Hello world from {{ salary | number : '2.4-5' }} in angular..</h1>
-<h1>Hello world from {{ spi | percent  }} in angular..</h1>
-<h1>Hello world from {{ salary | number : '1.2-3' }} in angular..</h1>
-<h1>Hello world from {{ salary | currency }} in angular..</h1>
-<h1>Hello world from {{ salary | currency : 'INR' }} in angular..</h1>
 
-<h1> {{ MyDate }} </h1>
-<h1> {{ MyDate | date}} </h1>
-<h1> {{ MyDate | date :'short' }} </h1>
-<h1> {{ MyDate | date :'shortDate' }}</h1>
-<h1> {{ MyDate | date :'shortTime' }} </h1>
-<h1> {{ MyDate | date :'medium' }} </h1>
-<h1> {{ MyDate | date :'long' }} </h1>
-<h1> {{ MyDate | date :'d/m/y' }} </h1>
-
-<h1> {{ person | json}} </h1>
-
-<img [src] = "image">
-
-<button (click)="changeImage()">
-    change
-</button>
-<br>
-<br>
-<br>
-
-<input type="text" [(ngModel)] = 'name'>
 
 
 <router-outlet></router-outlet>

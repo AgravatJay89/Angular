@@ -1,1 +1,32 @@
-<p>home works!</p>
+
+<!-- <input type="text" [(ngModel)] ="per" />
+
+<h1 *ngIf="per>=0.4">congratulation you got a {{ per | percent }}</h1>
+
+<h1 *ngIf = "per<0.4">sorry you are fail With  {{ per | percent }}</h1> -->
+
+<!-- <h1 *ngFor = " let fac of faculties "> {{fac.FacultyName}} </h1> -->
+
+<!-- <h1 *ngFor = "let fac of faculties">{{fac.FacultyExperience | slice:0:2}}</h1> -->
+
+
+
+<div *ngFor = "let fac of faculties">
+
+    <div *ngIf = "(+(fac.FacultyExperience.split('+')[0])) >= 10 ">
+
+        <table  width="100%" class="table table-success table-striped text-center" >
+            <tr id="design">
+                
+                    <td class="" style="width: 100px;"> {{fac.FacultyName}}</td>
+                    <td class="w-25">{{fac.FacultyDesignation}}</td>
+                    <td class="w-25">{{fac.FacultyEducationQualification}}</td>
+                    <td style="width: 50px;">{{fac.FacultyExperience.split('+')[0]}}</td>
+                    <td style="width: 50px;">{{fac.FacultyWorkingSince}}</td>
+                    <td class="w-25"> <img [src]="fac.FacultyImage" width="300px" /></td>
+            </tr>
+        </table>
+
+    </div>
+
+</div>

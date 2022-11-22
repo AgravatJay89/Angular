@@ -1,0 +1,22 @@
+<div class="bg-light mark" >
+    <marquee >
+        MARKETING
+    </marquee>
+</div>
+
+<h1 class="mt-5">Product works!</h1>
+<br/>
+<hr/>
+
+<div *ngFor="let prod of products">
+    <table width="100%" class="table table-success table-striped text-center">
+        <tr class="bg-second" id="design">
+            <td style="width:300px ;">{{prod.ProductName}}</td>
+            <td style="width: 100px;">{{prod.ProductPrice}}</td>
+            <td style="width: 700px;">{{prod.ProductDescription}}</td>
+            <td style="width: 60px;">{{prod.id}}</td>
+            <td class="img-fluid " > <img [src]="prod.ProductImage" width="300px"/></td>
+            
+        </tr>
+    </table>
+</div>

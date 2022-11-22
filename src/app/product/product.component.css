@@ -1,0 +1,23 @@
+*{
+    color: lightslategray;
+    font-weight: 900;
+   
+}
+
+h1{
+    text-align: center;
+    color: rgb(185, 129, 61);
+    font-size: 40px;
+   
+
+}
+
+#design{
+    background-color:lightskyblue;
+    font-size: 20px;
+}
+
+.mark{
+    font-size: 50px;
+    font-weight: 25px;
+}
