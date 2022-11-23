@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+  </head>
+  <body style="background-color: #23262b">
+    <div class="container text-light p-4 mt-2 form-container">
+        <form class="row g-3" [formGroup]="myForm" (ngSubmit)="insert()">
+            <div class="col-md-4">
+              <label for="inputEmail4" class="form-label">id</label>
+              <input type="text" class="form-control" id="inputEmail4" placeholder=" Eter Id" formControlName="id">
+              <br/>
+              <span *ngIf="myForm.controls.id.touched && myForm.controls.id.invalid" class="msgColor"> Please Enter Valid Id</span>
+            </div>
+            <div class="col-md-8">
+              <label for="inputPassword4" class="form-label">ProductName</label>
+              <input type="text" class="form-control" id="inputPassword4" placeholder=" Enter ProductName" formControlName="ProductName">
+              <br/>
+              <span *ngIf="myForm.controls.ProductName.touched && myForm.controls.ProductName.invalid" class="msgColor"> Please Enter Valid ProductName</span>
+            </div>
+            <div class="col-12">
+              <label for="inputAddress" class="form-label">ProductDescription</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder=" Enter ProductDescription" formControlName="ProductDescription">
+              <br/>
+            </div>
+            <div class="col-12">
+              <label for="inputAddress2" class="form-label">ProductImage</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder=" Enter ProductImage" formControlName="ProductImage">
+              <br/>
+              <span *ngIf="myForm.controls.ProductImage.touched && myForm.controls.ProductImage.invalid" class="msgColor"> Please Enter Valid ProductImage</span>
+            </div>
+            <div class="col-md-6">
+              <label for="inputCity" class="form-label">createdAt</label>
+              <input type="text" class="form-control" id="inputCity" placeholder=" Enter createdAt" formControlName="createdAt">
+              <br/>
+            </div>
+           
+            <div class="col-md-3">
+              <label for="inputZip" class="form-label">ProductPrice</label>
+              <input type="text" class="form-control" id="inputZip" placeholder=" E nter ProductPrice" formControlName="ProductPrice">
+              <br/>
+              <span *ngIf="myForm.controls.ProductPrice.touched && myForm.controls.ProductPrice.invalid" class="msgColor"> Please Enter Valid ProductPrice</span>
+            </div>
+        
+            <div class="col-12" *ngIf = "idToEdit == -1">
+              <input type="submit" class="btn" value="Add Product" style="background: #B8E8FC;"  />
+            </div>
+            <div class="col-12" *ngIf = "idToEdit != -1" >
+                <input type="submit" class="btn btn-success" value="Edit Product"  />
+              </div>
+              
+          </form>
+    </div>
+    
+    <marquee style="background-color: rgb(41, 42, 42); font-size: 45px; color: rgb(227, 224, 216); border: 1px solid transparent; border-top-color: beige; border-bottom-color: beige;" class="mt-4">
+        Data Of All Products
+    </marquee>
+    <br/>
+    <table class="table bg-dark text-light">
+        <tr>
+            <th>Id</th>
+            <th>createdAt</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr *ngFor="let pro of product; let i=index" class="products border rounded">
+            <td class="p-2">{{pro.id}}</td>
+            <td class="p-2">{{pro.createdAt}}</td>
+            <td class="p-2">{{pro.ProductName}}</td>
+            <td class="p-2" ><img [src] = "pro.ProductImage" width="200px" class="img"/></td>
+            <td class="p-2">{{pro.ProductPrice}}</td>
+            <td class="p-2">{{pro.ProductDescription}}</td>
+            <td class="p-2"> <input type="submit" value="Edit" class="btn btn-success bg-success" (click)="edit(i)"/></td>
+            <td class="p-2"> <input type="submit" value="Delete" class="btn btn-danger bg-danger" (click)="delete(i)"/></td>
+        </tr>
+    </table>
+  </body>
+</html>
+
+<!-- <form [formGroup]="myForm" (ngSubmit)="insert()">
+    <table class="w-100 bg-primary text-light text-center" >
+        <tr>
+            <td>id </td>
+            <td>:</td>
+            <td>
+                <input type="text" class="form-control " formControlName="id" />
+                <br/>
+                <span *ngIf="myForm.controls.id.touched && myForm.controls.id.invalid"> Please Enter A Valid Id</span>
+            </td>
+        
+           
+        </tr>
+        <tr>
+            <td>createdAt </td>
+            <td>:</td>
+            <td>
+                <input type="text" class="form-control " formControlName="createdAt"/>
+                <br/>
+            </td>
+            
+        </tr>
+        <tr>
+            <td>ProductName </td>
+            <td>:</td>
+            <td>
+                <input type="text" class="form-control " formControlName="ProductName"/>
+                <br/>
+                <span *ngIf="myForm.controls.ProductName.touched && myForm.controls.ProductName.invalid"> Please Enter A Valid ProductName</span>
+            </td>
+        </tr>
+        <tr>
+            <td>ProductImage </td>
+            <td>:</td>
+            <td>
+                <input type="text" class="form-control " formControlName="ProductImage"/>
+                <br/>
+                <span *ngIf="myForm.controls.ProductImage.touched && myForm.controls.ProductImage.invalid"> Please Enter A Valid ProductImage</span>
+            </td>
+        </tr>
+        <tr>
+            <td>ProductPrice </td>
+            <td>:</td>
+            <td>
+                <input type="text" class="form-control " formControlName="ProductPrice"/>
+                <br/>
+                <span *ngIf="myForm.controls.ProductPrice.touched && myForm.controls.ProductPrice.invalid"> Please Enter A Valid ProductPrice</span>
+            </td>
+        </tr>
+        <tr>
+            <td>ProductDescription </td>
+            <td>:</td>
+            <td>
+                <input type="text" class="form-control " formControlName="ProductDescription"/>
+                <br/>
+            </td>
+        </tr>
+       <tr>
+        <td colspan="3" *ngIf="idToEdit==-1"> <input type="submit" class="btn btn-success" value="Add Product"  /></td>
+        <td colspan="3" *ngIf="idToEdit!=-1"> <input type="submit" class="btn btn-success" value="Edit Product" /></td>
+       </tr>
+
+
+        
+    </table>
+</form> -->
