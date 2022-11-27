@@ -1,0 +1,65 @@
+<!-- <form [formGroup]="myForm" (ngSubmit)="insert()">
+    <table class="bg-secondary text-light text-center w-100" >
+        <tr>
+            <td>Enter Name</td>
+            <td>:</td>
+            <td>
+                <input  class="form-control mt-4 " type="text" formControlName="name" />
+                <br/>
+                <span *ngIf="myForm.controls.name.touched && myForm.controls.name.invalid" style="color: red;"> Please Enter Name</span>
+            </td>
+        </tr> 
+
+        <tr>
+            <td>Enter Age</td>
+            <td>:</td>
+            <td>
+                <input class="form-control mt-4" type="text" formControlName="age" />
+                <br/>
+            <span *ngIf="myForm.controls.age.touched && myForm.controls.age.invalid" style="color: red;"> Please Enter Age</span>
+            </td>
+            
+        </tr> 
+
+        <tr>
+            <td colspan="3" *ngIf="idToEdit==-1" id="sub" align="center" ><input type="submit" class="btn btn-primary" value="Add Faculty" [disabled]="!myForm.valid"/></td>
+            <td colspan="3" *ngIf="idToEdit!=-1" id="sub" align="center"><input type="submit" class="btn btn-primary" value="Edit Faculty"/></td>
+        </tr> 
+    </table>
+</form>
+<br/>
+
+<table border ="2" class="border border-success table table-striped">
+    <tr >
+        <th>
+            Name
+        </th>
+        <th>
+            Age
+        </th>
+        <th>
+            Delete
+        </th>
+        <th>
+            Edit
+        </th>
+    </tr>
+
+    <tr *ngFor="let fac of faculties ; let i=index" class="row-data">
+        <td>
+            {{fac.name}}
+        </td>
+        <td>
+            {{fac.age}}
+        </td>
+        <td>
+            <button  class="btn btn-danger bg-danger" (click)="delete(i)">Delete</button>
+        </td> 
+        <td>
+            <button class="btn btn-primary  bg-primary" (click)="edit(i)">Edit</button>
+        </td>
+    </tr>
+</table> -->
+
+<app-header class="mb-4"></app-header>
+<router-outlet></router-outlet>

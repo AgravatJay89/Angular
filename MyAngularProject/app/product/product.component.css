@@ -1,0 +1,34 @@
+body{
+    
+    width: 100%;
+    height: 100vh;
+}
+
+::placeholder{
+
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.msgColor{
+
+    color: rgba(255, 0, 55, 0.989);
+}
+
+.form-container{
+
+    /* background-color: rgba(101, 164, 241, 0.742); */
+    background-color: #393E46;
+    box-shadow: 0px 2px 10px 0px #010101;
+    border: 2px solid rgba(141, 139, 139, 0.742);
+    border-radius: 10px;
+
+} 
+
+.products{
+
+    background-color: rgba(9, 43, 60, 0.8);
+}
+
+.img{
+    border-radius: 10px;
+}
